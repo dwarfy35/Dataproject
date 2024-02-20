@@ -9,9 +9,7 @@ output: html_document
 ```{r}
 library(tidyverse)
 ```
-```{r}
-test_d <- read_tsv("sample1_methylated_normalized.tsv")
-```
+
 ```{r}
 header.true <- function(df) {
   names(df) <- as.character(unlist(df[1,]))
@@ -19,21 +17,12 @@ header.true <- function(df) {
 }
 ```
 
-
-```{r}
-test_d2 <- as.data.frame(t(test_d))
-test_d3 <- header.true(test_d2)
-test_d4 <- test_d3[,-1]
-test_d4
-
-```
-
-
-
 ```{r}
 getwd()
-setwd("C:\\Users\\dwarf\\Dataproject\\data_normalized\\2mers_extend200")
 ```
+
+
+
 ```{r}
 # List all TSV files in the directory
 setwd("C:\\Users\\dwarf\\Dataproject\\data_normalized\\2mers_extend200")
@@ -57,21 +46,63 @@ for (file in tsv_files) {
 # Combine all data frames into a single data frame
 combined_2mers <- do.call(rbind, data_list)
 
-# Print the combined data
-cc <- combined_2mers[order(as.numeric(as.character(combined_2mers)))]
-print(combined_2mers)
+# List all TSV files in the directory
+setwd("C:\\Users\\dwarf\\Dataproject\\data_normalized\\4mers_extend200")
+tsv_files <- list.files(pattern = "\\.tsv$")
+
+# Sort the list of TSV files
+#tsv_files <- sort(tsv_files)
+
+# Initialize an empty list to store data frames
+data_list <- list()
+
+# Loop through each TSV file, read it, and store it in the list
+for (file in tsv_files) {
+  data <- read_tsv(file)
+  data <- as.data.frame(t(data))
+  data <- header.true(data)
+  data <- data[,-1]
+  data_list[[file]] <- data
+}
+
+# Combine all data frames into a single data frame
+combined_4mers <- do.call(rbind, data_list)
+
+# List all TSV files in the directory
+setwd("C:\\Users\\dwarf\\Dataproject\\data_normalized\\6mers_extend200")
+tsv_files <- list.files(pattern = "\\.tsv$")
+
+# Sort the list of TSV files
+#tsv_files <- sort(tsv_files)
+
+# Initialize an empty list to store data frames
+data_list <- list()
+
+# Loop through each TSV file, read it, and store it in the list
+for (file in tsv_files) {
+  data <- read_tsv(file)
+  data <- as.data.frame(t(data))
+  data <- header.true(data)
+  data <- data[,-1]
+  data_list[[file]] <- data
+}
+
+# Combine all data frames into a single data frame
+combined_6mers <- do.call(rbind, data_list)
+
+
+
 ```
 ```{r}
+write_tsv(combined_2mers,"C:\\Users\\dwarf\\Dataproject\\data_combined\\combined_2mers.tsv")
+write_tsv(combined_4mers,"C:\\Users\\dwarf\\Dataproject\\data_combined\\combined_4mers.tsv")
 write_tsv(combined_6mers,"C:\\Users\\dwarf\\Dataproject\\data_combined\\combined_6mers.tsv")
 ```
 
 ```{r}
-setwd("C:\\Users\\dwarf\\Dataproject\\data_combined")
-```
-```{r}
-combined_2mers <- read_tsv("C:\\Users\\dwarf\\Dataproject\\data_combined\\combined_2mers.tsv")
-combined_4mers <- read_tsv("C:\\Users\\dwarf\\Dataproject\\data_combined\\combined_4mers.tsv")
-combined_6mers <- read_tsv("C:\\Users\\dwarf\\Dataproject\\data_combined\\combined_6mers.tsv")
+#combined_2mers <- read_tsv("C:\\Users\\dwarf\\Dataproject\\data_combined\\combined_2mers.tsv")
+#combined_4mers <- read_tsv("C:\\Users\\dwarf\\Dataproject\\data_combined\\combined_4mers.tsv")
+#combined_6mers <- read_tsv("C:\\Users\\dwarf\\Dataproject\\data_combined\\combined_6mers.tsv")
 meta_data <- read_tsv("C:\\Users\\dwarf\\Dataproject\\ctDNA_frag_meth\\metadata.tsv", col_names = FALSE)
 ```
 
