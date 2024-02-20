@@ -6,6 +6,6 @@ cd $1
 
 for file in *.tsv
 do
-    sed -i '1s/.*/kmer\tcount/' $file
+    sed -i '1i kmer\tcount' $file
 done
 echo "Done"
