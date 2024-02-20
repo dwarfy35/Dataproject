@@ -17,11 +17,6 @@ header.true <- function(df) {
 }
 ```
 
-```{r}
-getwd()
-```
-
-
 
 ```{r}
 # List all TSV files in the directory
@@ -148,5 +143,25 @@ write_tsv(combined_6mers_unmeth,"C:\\Users\\dwarf\\Dataproject\\data_combined\\c
 write_tsv(combined_4mers_unmeth,"C:\\Users\\dwarf\\Dataproject\\data_combined\\combined_4mers_unmeth.tsv")
 write_tsv(combined_2mers_unmeth,"C:\\Users\\dwarf\\Dataproject\\data_combined\\combined_2mers_unmeth.tsv")
 
+```
+```{r}
+combined_2mers_meth_healthy <- filter(combined_2mers_meth, cancer =="Healthy")
+combined_2mers_meth_cancer <- filter(combined_2mers_meth, cancer !="Healthy")
+combined_2mers_unmeth_healthy <- filter(combined_2mers_unmeth, cancer =="Healthy")
+combined_2mers_unmeth_cancer <- filter(combined_2mers_unmeth, cancer !="Healthy")
+combined_4mers_meth_healthy <- filter(combined_4mers_meth, cancer =="Healthy")
+combined_4mers_meth_cancer <- filter(combined_4mers_meth, cancer !="Healthy")
+combined_4mers_unmeth_healthy <- filter(combined_4mers_unmeth, cancer =="Healthy")
+combined_4mers_unmeth_cancer <- filter(combined_4mers_unmeth, cancer !="Healthy")
+combined_6mers_meth_healthy <- filter(combined_6mers_meth, cancer =="Healthy")
+combined_6mers_meth_cancer <- filter(combined_6mers_meth, cancer !="Healthy")
+combined_6mers_unmeth_healthy <- filter(combined_6mers_unmeth, cancer =="Healthy")
+combined_6mers_unmeth_cancer <- filter(combined_6mers_unmeth, cancer !="Healthy")
+combined_2mers_healthy <- filter(combined_2mers, cancer =="Healthy")
+combined_2mers_cancer <- filter(combined_2mers, cancer !="Healthy")
+combined_4mers_healthy <- filter(combined_4mers, cancer =="Healthy")
+combined_4mers_cancer <- filter(combined_4mers, cancer !="Healthy")
+combined_6mers_healthy <- filter(combined_6mers, cancer =="Healthy")
+combined_6mers_cancer <- filter(combined_6mers, cancer !="Healthy")
 ```
 
