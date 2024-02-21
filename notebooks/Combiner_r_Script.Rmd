@@ -18,8 +18,13 @@ header.true <- function(df) {
 ```
 
 ```{r}
+data <-  data[,-1]
+```
+
+
+```{r}
 # List all TSV files in the directory
-setwd("C:\\Users\\dwarf\\Dataproject\\data_normalized_split_with_background\\2mers_extend200")
+setwd("C:\\Users\\dwarf\\Dataproject\\data_normalized_split\\2mers_extend200")
 tsv_files <- list.files(pattern = "\\.tsv$")
 
 # Sort the list of TSV files
@@ -33,6 +38,7 @@ for (file in tsv_files) {
   data <- read_tsv(file, show_col_types = FALSE)
   data <- as.data.frame(t(data))
   data <- header.true(data)
+  data <- data[,-1]
   data_list[[file]] <- data
 }
 
@@ -40,7 +46,7 @@ for (file in tsv_files) {
 combined_2mers <- do.call(rbind, data_list)
 
 # List all TSV files in the directory
-setwd("C:\\Users\\dwarf\\Dataproject\\data_normalized_split_with_background\\4mers_extend200")
+setwd("C:\\Users\\dwarf\\Dataproject\\data_normalized_split\\4mers_extend200")
 tsv_files <- list.files(pattern = "\\.tsv$")
 
 # Sort the list of TSV files
@@ -54,6 +60,7 @@ for (file in tsv_files) {
   data <- read_tsv(file, show_col_types = FALSE)
   data <- as.data.frame(t(data))
   data <- header.true(data)
+  data <- data[,-1]
   data_list[[file]] <- data
 }
 
@@ -61,7 +68,7 @@ for (file in tsv_files) {
 combined_4mers <- do.call(rbind, data_list)
 
 # List all TSV files in the directory
-setwd("C:\\Users\\dwarf\\Dataproject\\data_normalized_split_with_background\\6mers_extend200")
+setwd("C:\\Users\\dwarf\\Dataproject\\data_normalized_split\\6mers_extend200")
 tsv_files <- list.files(pattern = "\\.tsv$")
 
 # Sort the list of TSV files
@@ -75,6 +82,7 @@ for (file in tsv_files) {
   data <- read_tsv(file, show_col_types = FALSE)
   data <- as.data.frame(t(data))
   data <- header.true(data)
+  data <- data[,-1]
   data_list[[file]] <- data
 }
 
@@ -148,8 +156,8 @@ combined_6mers_unmeth <- combined_6mers_unmeth %>% slice(which(row_number()%% 2 
 ```
 
 ```{r}
-#meta_data_fin <- rbind(c("background","background"),meta_data)
-meta_data_sort <- meta_data[order(meta_data$X1),]
+meta_data_fin <- rbind(c("background","background"),meta_data)
+meta_data_sort <- meta_data_fin[order(meta_data_fin$X1),]
 ```
 
 ```{r}
@@ -167,26 +175,29 @@ combined_6mers_unmeth_even <- combined_6mers_unmeth_even %>% mutate("cancer" = m
 combined_6mers_unmeth_odd <- combined_6mers_unmeth_odd %>% mutate("cancer" = meta_data_sort$X2)
 ```
 ```{r}
-write_tsv(combined_2mers_meth_even,"C:\\Users\\dwarf\\Dataproject\\data_combined_split_with_background\\combined_2mers_meth_even_with_background.tsv")
-write_tsv(combined_2mers_meth_odd,"C:\\Users\\dwarf\\Dataproject\\data_combined_split_with_background\\combined_2mers_meth_odd_with_background.tsv")
+write_tsv(combined_2mers_meth_even,"C:\\Users\\dwarf\\Dataproject\\data_combined_split\\combined_2mers_meth_even.tsv")
+write_tsv(combined_2mers_meth_odd,"C:\\Users\\dwarf\\Dataproject\\data_combined_split\\combined_2mers_meth_odd.tsv")
 
-write_tsv(combined_2mers_unmeth_even,"C:\\Users\\dwarf\\Dataproject\\data_combined_split_with_background\\combined_2mers_unmeth_even_with_background.tsv")
-write_tsv(combined_2mers_unmeth_odd,"C:\\Users\\dwarf\\Dataproject\\data_combined_split_with_background\\combined_2mers_unmeth_odd_with_background.tsv")
+write_tsv(combined_2mers_unmeth_even,"C:\\Users\\dwarf\\Dataproject\\data_combined_split\\combined_2mers_unmeth_even.tsv")
+write_tsv(combined_2mers_unmeth_odd,"C:\\Users\\dwarf\\Dataproject\\data_combined_split\\combined_2mers_unmeth_odd.tsv")
 
-write_tsv(combined_4mers_meth_even,"C:\\Users\\dwarf\\Dataproject\\data_combined_split_with_background\\combined_4mers_meth_even_with_background.tsv")
-write_tsv(combined_4mers_meth_odd,"C:\\Users\\dwarf\\Dataproject\\data_combined_split_with_background\\combined_4mers_meth_odd_with_background.tsv")
+write_tsv(combined_4mers_meth_even,"C:\\Users\\dwarf\\Dataproject\\data_combined_split\\combined_4mers_meth_even.tsv")
+write_tsv(combined_4mers_meth_odd,"C:\\Users\\dwarf\\Dataproject\\data_combined_split\\combined_4mers_meth_odd.tsv")
 
-write_tsv(combined_4mers_unmeth_even,"C:\\Users\\dwarf\\Dataproject\\data_combined_split_with_background\\combined_4mers_unmeth_even_with_background.tsv")
-write_tsv(combined_4mers_unmeth_odd,"C:\\Users\\dwarf\\Dataproject\\data_combined_split_with_background\\combined_4mers_unmeth_odd_with_background.tsv")
+write_tsv(combined_4mers_unmeth_even,"C:\\Users\\dwarf\\Dataproject\\data_combined_split\\combined_4mers_unmeth_even.tsv")
+write_tsv(combined_4mers_unmeth_odd,"C:\\Users\\dwarf\\Dataproject\\data_combined_split\\combined_4mers_unmeth_odd.tsv")
 
-write_tsv(combined_6mers_meth_even,"C:\\Users\\dwarf\\Dataproject\\data_combined_split_with_background\\combined_6mers_meth_even_with_background.tsv")
+write_tsv(combined_6mers_meth_even,"C:\\Users\\dwarf\\Dataproject\\data_combined_split\\combined_6mers_meth_even.tsv")
 
-write_tsv(combined_6mers_meth_odd,"C:\\Users\\dwarf\\Dataproject\\data_combined_split_with_background\\combined_6mers_meth_odd_with_background.tsv")
+write_tsv(combined_6mers_meth_odd,"C:\\Users\\dwarf\\Dataproject\\data_combined_split\\combined_6mers_meth_odd.tsv")
 
-write_tsv(combined_6mers_unmeth_even,"C:\\Users\\dwarf\\Dataproject\\data_combined_split_with_background\\combined_6mers_unmeth_even_with_background.tsv")
-write_tsv(combined_6mers_unmeth_odd,"C:\\Users\\dwarf\\Dataproject\\data_combined_split_with_background\\combined_6mers_unmeth_odd_with_background.tsv")
+write_tsv(combined_6mers_unmeth_even,"C:\\Users\\dwarf\\Dataproject\\data_combined_split\\combined_6mers_unmeth_even.tsv")
+write_tsv(combined_6mers_unmeth_odd,"C:\\Users\\dwarf\\Dataproject\\data_combined_split\\combined_6mers_unmeth_odd.tsv")
 
 ```
+
+
+
 ```{r}
 combined_2mers_meth_healthy <- filter(combined_2mers_meth, cancer =="Healthy")
 combined_2mers_meth_cancer <- filter(combined_2mers_meth, cancer !="Healthy")
