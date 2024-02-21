@@ -1,14 +1,18 @@
 #!/usr/bin/env python3
+import os
+
 import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.decomposition import PCA
 from sklearn.cluster import KMeans
 
-file_input = input("Enter the directory of the file: ")
+directory_input = input("Enter the directory of the files:")
 cluster_input = int(input("How many clusters do you want?"))
-data = pd.read_csv(file_input, sep='\t', index_col=0)
-data = data.loc[:, data.columns != 'cancer']
-name_of_file = input("What would you like to name the file?")
+
+all_files = []
+for file in os.listdir(directory_input):
+    if file.endswith(".tsv"):
+        all_files.append(file)
 
 
 def pca_fit(data):
@@ -26,9 +30,12 @@ def kmeans_cluster(data, n_clusters):
     plt.scatter(data[:, 0], data[:, 1], c=y_kmeans, s=50, cmap='viridis')
     centers = kmeans.cluster_centers_
     plt.scatter(centers[:, 0], centers[:, 1], c='black', s=200, alpha=0.5)
-    plt.savefig(name_of_file + '.png')
 
 
-pca_fit(data)
-
-kmeans_cluster(pca_fit(data), cluster_input)
+for file in all_files:
+    data = pd.read_csv(directory_input + file, sep='\t')
+    data = data.loc[:, data.columns != 'cancer']
+    pca_fit(data)
+    kmeans_cluster(pca_fit(data), cluster_input)
+    plt.savefig(file + ".png")
+    plt.clf()
