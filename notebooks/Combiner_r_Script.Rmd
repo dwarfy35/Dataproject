@@ -99,9 +99,21 @@ combined_6mers <- do.call(rbind, data_list)
 ```
 
 ```{r}
-#combined_2mers <- read_tsv("C:\\Users\\dwarf\\Dataproject\\data_combined\\combined_2mers.tsv")
-#combined_4mers <- read_tsv("C:\\Users\\dwarf\\Dataproject\\data_combined\\combined_4mers.tsv")
-#combined_6mers <- read_tsv("C:\\Users\\dwarf\\Dataproject\\data_combined\\combined_6mers.tsv")
+combined_2mers_meth_even <- read_tsv("C:\\Users\\dwarf\\Dataproject\\data_combined_split\\combined_2mers_meth_even.tsv", col_select = 1:16)
+combined_2mers_meth_odd <- read_tsv("C:\\Users\\dwarf\\Dataproject\\data_combined_split\\combined_2mers_meth_odd.tsv", col_select = 1:16)
+combined_2mers_unmeth_even <- read_tsv("C:\\Users\\dwarf\\Dataproject\\data_combined_split\\combined_2mers_unmeth_even.tsv")
+combined_2mers_unmeth_odd <- read_tsv("C:\\Users\\dwarf\\Dataproject\\data_combined_split\\combined_2mers_unmeth_odd.tsv")
+combined_4mers_meth_even <- read_tsv("C:\\Users\\dwarf\\Dataproject\\data_combined_split\\combined_4mers_meth_even.tsv")
+combined_4mers_meth_odd <- read_tsv("C:\\Users\\dwarf\\Dataproject\\data_combined_split\\combined_4mers_meth_odd.tsv")
+combined_4mers_unmeth_even <- read_tsv("C:\\Users\\dwarf\\Dataproject\\data_combined_split\\combined_4mers_unmeth_even.tsv")
+combined_4mers_unmeth_odd <- read_tsv("C:\\Users\\dwarf\\Dataproject\\data_combined_split\\combined_4mers_unmeth_odd.tsv")
+combined_6mers_meth_even <- read_tsv("C:\\Users\\dwarf\\Dataproject\\data_combined_split\\combined_6mers_meth_even.tsv")
+combined_6mers_meth_odd <- read_tsv("C:\\Users\\dwarf\\Dataproject\\data_combined_split\\combined_6mers_meth_odd.tsv")
+combined_6mers_unmeth_even <- read_tsv("C:\\Users\\dwarf\\Dataproject\\data_combined_split\\combined_6mers_unmeth_even.tsv")
+combined_6mers_unmeth_odd <- read_tsv("C:\\Users\\dwarf\\Dataproject\\data_combined_split\\combined_6mers_unmeth_odd.tsv")
+
+
+
 meta_data <- read_tsv("C:\\Users\\dwarf\\Dataproject\\ctDNA_frag_meth\\metadata.tsv", col_names = FALSE)
 ```
 ```{r}
