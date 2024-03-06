@@ -1,0 +1,64 @@
+% General packages
+\usepackage[T1]{fontenc} 
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[final]{microtype}
+\usepackage{multicol}
+\usepackage{amssymb}
+\usepackage{adjustbox}
+\usepackage{amsmath}
+\usepackage{siunitx}
+\usepackage{cancel}
+\usepackage[normalem]{ulem}
+\usepackage{ragged2e}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{tabularx}
+\usepackage{lipsum}
+\usepackage{wrapfig}
+\usepackage{tikz, pgfplots}
+\usetikzlibrary{er}
+\pgfplotsset{compat=1.16}
+\usepackage{notoccite}
+\usepackage{pythonhighlight}
+\usepackage{scalerel}
+\usepackage[hyphens]{url}
+\usepackage{ifthen}
+\usepackage{csquotes}
+\usepackage[breaklinks]{hyperref}
+\usepackage{listings}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+\geometry{
+ top = 25mm,
+ left = 30mm,
+ right = 30mm,
+ bottom = 25mm,}
+
+ %lstlisting setup
+\lstset
+{
+    basicstyle=\footnotesize,
+    numbers=left,
+    stepnumber=1,
+    showstringspaces=false,
+    tabsize=1,
+    breaklines=true,
+    breakatwhitespace=false,
+}
+%Python env
+\usepackage{pythonhighlight}
+\definecolor{jet_orange}{HTML}{CC7832}
+\definecolor{jet_green}{HTML}{6A8759}
+\colorlet{stringcolour}{jet_green}
+\colorlet{keywordcolour}{jet_orange}
+\colorlet{exceptioncolour}{yellow!50!red}
+\colorlet{commandcolour}{blue!60!black}
+\colorlet{literatecolour}{magenta!90!black}
+\colorlet{promptcolour}{green!50!black}
+\colorlet{specmethodcolour}{violet}
