@@ -1,0 +1,19 @@
+\chapter{Normalizing the data}
+The raw data with just the counts, would likely not work, thus we want to normalize the data. The way in which we do this is by taking the sum of all the counts in a given file, and then dividing each count cell by this sum, thus giving us a ratio of the data. The way in which we've programmed this can be found in the \textit{scripts/} folder of this repository, called \textit{normalize\_data.sh}. This script does as previosly mentioned and writes the ratios into a new file, which can be found in the folder \textit{processed\_data/normalized\_data}. We then combine all these matrices into a single matrix with a R-script, which can also be found in the \textit{scripts/}. The new file can be found in the the \textit{processed\_data/combined\_data/}.
+
+\section{Normalizing with the background}
+In order to see the ratios of the samples compared to the potential ratios of the region in question, one can also normalize with the background file found in each k-mer folder. The way in which we approached this, was as previous by taking the sum of each count column, and then in addition we divide each cell in each sample with their respective background ratio. We did this with the \textit{normalize\_data\_with\_background.sh} file, which can be found in the \textit{scripts/} folder.
+
+\section{PCA}
+To make the data approachable, it would be desirable to transform the data into a smaller dimension, we do this by using \textit{Principal Component Analysis}. The way in which do this is by using the function from \textit{sklearn} called PCA. An example could be:
+\begin{python}
+from sklearn.decomposition import PCA
+...
+def pca_fit(data):
+    pca = PCA(n_components=2)
+    pca.fit(data)
+    data_pca = pca.transform(data)
+
+    return data_pca
+...
+\end{python}
