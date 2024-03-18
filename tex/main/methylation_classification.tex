@@ -1,2 +1,13 @@
-\chapter{Metylation classification}
-testing
+\chapter{Models}
+We will make 2 models where the output of one is the input of the other. The first of these models determines the probability of a sample being either methylated or unmethylated. The second model determines based on those probabilities whether it comes from someone with a tumor or without. 
+\section{Methylation  classification model}
+This is the first proper step in the creation of the model that should be able to predict whether a given person may have a tumor based on blood analysis.
+
+This first step is the creation of a \textit{binary classification model} to determine whether we are looking at a methylated or unmethylated region. We decided that a \textit{logistic regression} using \textit{L1 normalization (LASSO)} should be a good classifier. We used the same PCA data as in previous chapters to train and test the model. We decided that training on even and testing on odd should be adequate. Using \textit{SKlearn} we created the following code to create, train and test the model.
+
+We end up with 100\% accuracy in our prediction of methylated and unmethylated, while this is regularly a red flag we do not find it too surprising as even just with 2 principal components we could almost separate methylated and unmethylated into 2 distinct clusters. Here is a graph showing the values of the coefficients for the different principal components.
+
+With a good classifier for methylated and unmethylated set up we moved on to the next model.
+\section{Tumor classification model}
+In the previous model we trained on all healthy samples, now we are training on only half. We are now also testing on non-healthy patients, this should ideally give high confidence in predictions for healthy samples and lower confidence in predictions for non-healthy samples. The main idea with the model is to find where the confidence cutoff should be for both methylated and unmethylated such that we obtain the best model.
+
