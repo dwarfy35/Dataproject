@@ -1,0 +1,11 @@
+\babel@toc {english}{}\relax 
+\contentsline {chapter}{\chapternumberline {1}Introduction}{2}{chapter.1}%
+\contentsline {chapter}{\chapternumberline {2}The data}{3}{chapter.2}%
+\contentsline {chapter}{\chapternumberline {3}Normalizing the data}{4}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Normalizing with the background}{4}{section.3.1}%
+\contentsline {section}{\numberline {3.2}PCA}{4}{section.3.2}%
+\contentsline {chapter}{\chapternumberline {4}Data exploration}{5}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Even and Odd}{6}{section.4.1}%
+\contentsline {chapter}{\chapternumberline {5}Models}{9}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Methylation classification model}{9}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Tumor classification model}{9}{section.5.2}%
