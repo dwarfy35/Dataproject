@@ -10,6 +10,16 @@
 \maketitle
 \tableofcontents*
 \newpage
+\chapter{Quick overview of repo}
+This is a quick overview of the structure of the repo.
+We have divided everything into various folders, we highly recommend reading the introduction here in order to understand the purpose of the project. 
+Starting from the top we have the "figures" folder. This and certain other folders contain 3 subfolders for the various areas of our project, each of these subfolders contain more folders in which various figures and tables relating to the project can be found. 
+The "Model" folder contains joblibs of our models created by the scripts and notebooks in this repo.
+The "notebooks" folder contains jupyter notebooks as well a R markdowns for various processes going from creating to models to organizing our data.
+This is closely related to the "Scripts" folder this contains scripts of various kinds, do note that while some notebooks do have script counterparts not all do, and not all scripts have a notebook. 
+The data is split across 3 folders. The zip files are found in "zip\_files" we extracted this into the "raw\_data" folder. Which also includes combined tables.
+The "processed\_data" is the data after being normalized, this is primarily the data we used in our various processes.
+The "tex" folder contains all of our LaTeX related items.
 
 \input{introduction}
 \newpage
@@ -20,5 +30,6 @@
 \input{data_processing}
 \newpage
 \input{methylation_classification}
-
+\newpage
+\input{conclusion}
 \end{document}
