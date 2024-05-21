@@ -4,6 +4,11 @@ author: "Daniel Jensen"
 date: "2024-02-16"
 output: html_document
 ---
+```{r}
+#This markdown file combines many smaller TSV's into 1 larger one, this is done quite impratically and currently requires you to manually change the various WDs in this markdown, to simplify this there is a "user" variable which you should define as whatever your windows username is, it may work for other OS but has only been tested on Windows. 
+#It was built up over a few iterations and as such you will need to navigate and find the appropriate code blocks to execute.
+#However, this file should ideally not need to be used since the files have already been combined.
+```
 
 
 ```{r}
@@ -11,6 +16,7 @@ library(tidyverse)
 ```
 
 ```{r}
+#Function to remove the top row 
 header.true <- function(df) {
   names(df) <- as.character(unlist(df[1,]))
   df[-1,]
@@ -93,9 +99,9 @@ combined_6mers <- do.call(rbind, data_list)
 
 ```
 ```{r}
-#write_tsv(combined_2mers,"C:\\Users\\dwarf\\Dataproject\\data_combined_with_background\\combined_2mers_with_background.tsv")
-#write_tsv(combined_4mers,"C:\\Users\\dwarf\\Dataproject\\data_combined_with_background\\combined_4mers_with_background.tsv")
-#write_tsv(combined_6mers,"C:\\Users\\dwarf\\Dataproject\\data_combined_with_background\\combined_6mers_with_background.tsv")
+write_tsv(combined_2mers,"C:\\Users\\dwarf\\Dataproject\\data_combined_with_background\\combined_2mers_with_background.tsv")
+write_tsv(combined_4mers,"C:\\Users\\dwarf\\Dataproject\\data_combined_with_background\\combined_4mers_with_background.tsv")
+write_tsv(combined_6mers,"C:\\Users\\dwarf\\Dataproject\\data_combined_with_background\\combined_6mers_with_background.tsv")
 ```
 
 ```{r}
