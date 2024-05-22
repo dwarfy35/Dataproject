@@ -1,3 +1,6 @@
+# This script was created by a group member who left. As such our documentation may be somewhat lacking.
+# This script calculates and plots clusters for the files in a given directory.
+
 #!/usr/bin/env python3
 import os
 
@@ -9,7 +12,7 @@ from sklearn.cluster import KMeans
 directory_input = input("Enter the directory of the files:")
 cluster_input = int(input("How many clusters do you want?"))
 
-all_files = []
+all_files = [] # Finds all "tsv" files in directory
 for file in os.listdir(directory_input):
     if file.endswith(".tsv"):
         all_files.append(file)
@@ -23,7 +26,7 @@ def pca_fit(data):
     return data_pca
 
 
-def kmeans_cluster(data, n_clusters):
+def kmeans_cluster(data, n_clusters): # Calculates k_means clusters and plots them
     kmeans = KMeans(n_clusters=n_clusters)
     kmeans.fit(data)
     y_kmeans = kmeans.predict(data)

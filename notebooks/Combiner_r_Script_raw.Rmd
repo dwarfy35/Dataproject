@@ -4,7 +4,7 @@ author: "Daniel Jensen"
 date: "2024-02-16"
 output: html_document
 ---
-
+# This is similar to another notebook, see it for documentation
 
 ```{r}
 library(tidyverse)
@@ -23,17 +23,13 @@ data
 
 
 ```{r}
-# List all TSV files in the directory
 setwd("C:\\Users\\dwarf\\Dataproject\\raw_data\\ctDNA_frag_meth_split\\data\\kmer_tsv\\2mers_extend200_split")
 tsv_files <- list.files(pattern = "\\.tsv$")
 
-# Sort the list of TSV files
-#tsv_files <- sort(tsv_files)
+tsv_files <- sort(tsv_files)
 
-# Initialize an empty list to store data frames
 data_list <- list()
 
-# Loop through each TSV file, read it, and store it in the list
 for (file in tsv_files) {
   data <- read_tsv(file, show_col_types = FALSE)
   data <- as.data.frame(t(data))
@@ -42,20 +38,15 @@ for (file in tsv_files) {
   data_list[[file]] <- data
 }
 
-# Combine all data frames into a single data frame
 combined_2mers <- do.call(rbind, data_list)
 
-# List all TSV files in the directory
 setwd("C:\\Users\\dwarf\\Dataproject\\raw_data\\ctDNA_frag_meth_split\\data\\kmer_tsv\\4mers_extend200_split")
 tsv_files <- list.files(pattern = "\\.tsv$")
 
-# Sort the list of TSV files
-#tsv_files <- sort(tsv_files)
+tsv_files <- sort(tsv_files)
 
-# Initialize an empty list to store data frames
 data_list <- list()
 
-# Loop through each TSV file, read it, and store it in the list
 for (file in tsv_files) {
   data <- read_tsv(file, show_col_types = FALSE)
   data <- as.data.frame(t(data))
@@ -64,20 +55,15 @@ for (file in tsv_files) {
   data_list[[file]] <- data
 }
 
-# Combine all data frames into a single data frame
 combined_4mers <- do.call(rbind, data_list)
 
-# List all TSV files in the directory
 setwd("C:\\Users\\dwarf\\Dataproject\\raw_data\\ctDNA_frag_meth_split\\data\\kmer_tsv\\6mers_extend200_split")
 tsv_files <- list.files(pattern = "\\.tsv$")
 
-# Sort the list of TSV files
-#tsv_files <- sort(tsv_files)
+tsv_files <- sort(tsv_files)
 
-# Initialize an empty list to store data frames
 data_list <- list()
 
-# Loop through each TSV file, read it, and store it in the list
 for (file in tsv_files) {
   data <- read_tsv(file, show_col_types = FALSE)
   data <- as.data.frame(t(data))
@@ -86,7 +72,6 @@ for (file in tsv_files) {
   data_list[[file]] <- data
 }
 
-# Combine all data frames into a single data frame
 combined_6mers <- do.call(rbind, data_list)
 
 
