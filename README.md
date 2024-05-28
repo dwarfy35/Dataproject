@@ -4,7 +4,7 @@ https://github.com/kandevander/Dataproject/blob/605c720ca799ca6599a725dac3feb80f
 Here is a quick overview of the repo.
 
 - Figures. Split into 3 subfolders containing figures pertaining to the various models
-- Model. Contains the created models
+- Models. Contains the created models split into "Methylation" and "Straight"
 - Notebooks. Contains Jupyter Notebooks and R markdowns.
 - Processed_data. Contains the data primarily used in the project.
 - raw_data. Contains the data prior to normalization
