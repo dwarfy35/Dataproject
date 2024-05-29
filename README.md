@@ -1,6 +1,6 @@
 # Dataproject
 This is our project for the data project course. See "main.pdf" in Dataproject/tex/main/main.pdf or the link below for a report on what we did as well as a description of the project and repo. 
-https://github.com/kandevander/Dataproject/blob/605c720ca799ca6599a725dac3feb80fe713ca13/tex/main/main.pdf
+https://github.com/dwarfy35/Dataproject/blob/main/tex/main/main.pdf
 Here is a quick overview of the repo.
 
 - Figures. Split into 3 subfolders containing figures pertaining to the various models
